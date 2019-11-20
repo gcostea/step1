@@ -15,14 +15,14 @@ import java.util.stream.Collectors;
 public class Application {
 
     public static void main(String... args) throws IOException {
-        HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
-        HttpContext context = server.createContext("/cities");
+        var server = HttpServer.create(new InetSocketAddress(8080), 0);
+        var context = server.createContext("/cities");
         context.setHandler(Application::handleRequest);
         server.start();
     }
 
     private static void handleRequest(HttpExchange exchange) throws IOException {
-        String response = getCitiesFromCsv().stream()
+        var response = getCitiesFromCsv().stream()
                 .map(City::getName)
                 .collect(Collectors.joining(","));
         exchange.sendResponseHeaders(200, response.getBytes().length);
