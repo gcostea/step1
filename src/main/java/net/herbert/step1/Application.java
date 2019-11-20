@@ -23,7 +23,7 @@ public class Application {
     private static void handleRequest(HttpExchange exchange) throws IOException {
         var response = getCitiesFromCsv().stream()
                 .map(City::getName)
-                .collect(Collectors.joining(","));
+                .collect(Collectors.joining(", "));
         exchange.sendResponseHeaders(200, response.getBytes().length);
         try (var output = exchange.getResponseBody()) {
             output.write(response.getBytes());
