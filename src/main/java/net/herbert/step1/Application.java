@@ -1,7 +1,6 @@
 package net.herbert.step1;
 
 import com.opencsv.bean.CsvToBeanBuilder;
-import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 import net.herbert.step1.model.City;
