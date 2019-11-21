@@ -31,11 +31,13 @@ public class Application {
     }
 
     private static List<City> getCitiesFromCsv() throws IOException {
-        try (var reader = new FileReader("cities.csv")) {
+        try (var reader = new FileReader(CSV_LOCATION)) {
             return new CsvToBeanBuilder<City>(reader)
                     .withType(City.class)
                     .build()
                     .parse();
         }
     }
+
+    private static final String CSV_LOCATION = "/home/costea/Work/Arezzosky/TechHerbert2019/Data/cities-small.csv";
 }
